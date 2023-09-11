@@ -43,7 +43,7 @@ export const App = () => {
     }
     setContacts(prevState => ({
       contacts: [
-        ...prevState.contacts,
+        ...prevState,
         {
           id: nanoid(),
           ...newContact,
@@ -76,7 +76,7 @@ export const App = () => {
         <Filter value={filter} onChange={onChange} />
         {contacts.length ? (
           <ContactList
-            contacts={getFilteredContacts}
+            contacts={getFilteredContacts()}
             deleteContact={deleteContact}
           />
         ) : (
